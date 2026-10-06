@@ -22,7 +22,7 @@ Last updated: 2026-10-06 (end of session 1 build)
 - [!] P0-6 Link a billing account to the Cloud project. **Owner action:** $30 prepayment, dollar-enabled Visa/Mastercard.
 - [ ] P0-7 Create API key restricted to Places API (New). Depends on P0-6.
 - [ ] P0-8 Set daily quota cap and a budget alert in Google Cloud. Depends on P0-6.
-- [ ] P0-9 Decide whether to `git init` (recommended so multiple agents and sessions can diff and recover).
+- [x] P0-9 `git init` done; remote `origin` = `git@github.com:netojaycee/business-scraper.git`, branch `main`. Commit and push at the end of each work session so other sessions/agents see current state. `.env`, `data/`, `.venv/` are gitignored; never commit scraped contact data.
 
 ## Phase 1: Foundations
 - [x] P1-1 `requirements.txt`, `.gitignore`, `.env.example`, venv setup.
@@ -85,9 +85,8 @@ Last updated: 2026-10-06 (end of session 1 build)
 ## Open decisions (owner)
 1. Pay the $30 Google prepayment now, or run on CSV/free sources first? (Pipeline is built to work either way.)
 2. Which free route for Google-style data: Apify or Outscraper free tier (owner signs up and provides key), or directory research (P2-5)?
-3. `git init` the project? (Recommended.)
-4. Email sending domain and tool (P6-2).
-5. Sender identity and address for message footers (`SENDER_*` in `.env`).
+3. Email sending domain and tool (P6-2).
+4. Sender identity and address for message footers (`SENDER_*` in `.env`).
 
 ## How to verify the current build
 ```

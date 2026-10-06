@@ -1,0 +1,54 @@
+{
+  "niches": {
+    "real estate": {
+      "weight": 1.0,
+      "queries": ["real estate agency", "estate agent", "property developer"]
+    },
+    "private school": {
+      "weight": 0.9,
+      "queries": ["private school", "nursery and primary school", "secondary school"]
+    },
+    "clinic": {
+      "weight": 0.9,
+      "queries": ["private clinic", "dental clinic", "diagnostic centre"]
+    },
+    "hotel": {
+      "weight": 0.8,
+      "queries": ["hotel", "guest house", "short let apartments"]
+    },
+    "event venue": {
+      "weight": 0.8,
+      "queries": ["event centre", "wedding planner", "event hall"]
+    },
+    "law firm": {
+      "weight": 0.8,
+      "queries": ["law firm", "chartered accountants"]
+    },
+    "logistics": {
+      "weight": 0.7,
+      "queries": ["logistics company", "dispatch rider service", "travel agency"]
+    },
+    "solar": {
+      "weight": 0.7,
+      "queries": ["solar installation company", "generator sales and service"]
+    },
+    "car dealer": {
+      "weight": 0.7,
+      "queries": ["car dealer", "auto dealership"]
+    }
+  },
+  "cities": {
+    "Lagos": {
+      "country": "Nigeria",
+      "areas": ["Ikeja", "Lekki", "Victoria Island", "Ikoyi", "Yaba", "Surulere", "Ajah", "Maryland", "Gbagada", "Ikorodu"]
+    },
+    "Abuja": {
+      "country": "Nigeria",
+      "areas": ["Wuse", "Garki", "Maitama", "Asokoro", "Gwarinpa", "Jabi", "Kubwa", "Lugbe"]
+    },
+    "Port Harcourt": {
+      "country": "Nigeria",
+      "areas": ["GRA", "Rumuola", "Trans Amadi", "Rumuokoro", "Diobu"]
+    }
+  }
+}

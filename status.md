@@ -2,14 +2,31 @@
 
 Legend: `[ ]` todo · `[~]` in progress (tag, date) · `[x]` done · `[!]` blocked
 
-Last updated: 2026-10-06 (end of session 1 build)
+Last updated: 2026-10-06 (end of session 1; see "Where we stopped")
 
-## Right now
-- **Blocker:** Google billing. Needs a **$30 prepayment** from the owner. Until then use CSV import and free sources.
-- **Built and tested (29 unit tests + an end-to-end smoke run on a fictional CSV):** scaffold, database, CSV import, Google Places collector (gated), website audit, scoring, export.
-- **Next up:** get real leads in (P2-5 directory research, or owner provides an Apify/Outscraper export, or pays the $30), then P4-4 review, then Phase 5 message writer.
-- **Nothing has been run against real lead data yet.** Tier quality is unproven until P4-4.
-- **Decisions owed by owner:** see "Open decisions" at the bottom.
+## Where we stopped (end of session 1, 2026-10-06)
+**State:** Phases 1-4 are built, tested (29 unit tests) and pushed to `origin/main`. The pipeline runs end to end on CSV input: import, dedupe, audit, score, export. It has only been run on a fictional 5-row fixture. **No real leads exist yet and no real Google call has ever been made.**
+
+**Why we stopped:** there is no lead source yet.
+- Google Places is built but blocked: no billing account (needs the owner's **$30 prepayment**), so no API key, no quota cap, no budget alert (P0-6 to P0-8).
+- OpenStreetMap is too thin for Nigeria (24 estate agents, 6 with phone).
+- Nigerian directories are unresearched (first probe used guessed URLs).
+
+**Owner decision needed (pick one, in this order of preference):**
+1. Pay the $30 and complete billing in the Cloud console (`business-scraper-510800`), then tell Claude. Claude then does P0-7, P0-8, P2-3b.
+2. Sign up for the free tier of Apify or Outscraper, export a Google Maps CSV for "real estate agency" in Lagos, and drop it in `data/imports/`. Then run `import-csv`.
+3. Ask Claude to do P2-5 (directory research) with the browser tools. Slower, data quality unknown.
+
+**Next actions once leads exist (in order):**
+1. `python -m scraper import-csv data/imports/<file>.csv --niche "real estate" --city Lagos --source apify`
+2. `python -m scraper audit --limit 100` then `python -m scraper score` then `python -m scraper stats`
+3. P4-4: eyeball 20 leads against their tiers and fix the rules in `scoring.py` where they disagree.
+4. P3-3b (optional): free PageSpeed key.
+5. Phase 5: message writer (WhatsApp first, then email; no pricing; ask for a meeting). Needs sender details in `.env` (`SENDER_*`) and optionally `ANTHROPIC_API_KEY`.
+
+**Can be done with no leads and no money (good for an idle session):** P5-1 message spec and templates, P5-3 compliance helpers, P6-3 event logging commands, P2-5 directory research, P7-1 dashboard skeleton.
+
+**Known caveats:** tier B "site did not load" must be re-checked on another day before any message mentions it (P4-3b). PageSpeed needs a key (keyless quota exhausted). Google's field-mask cost per request is unverified until P2-3b; start with `--max-requests 3`.
 
 ---
 

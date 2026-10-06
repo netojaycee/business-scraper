@@ -3,6 +3,7 @@
 Project: lead-generation pipeline for a web-design business (Nigeria first, then Africa). Find businesses, audit their web presence, score them, draft meeting-booking outreach.
 
 ## Start every session like this
+0. Run `git pull`, then read the "Where we stopped" section at the top of `status.md`. End your session by updating it, committing and pushing (remote: `origin`, branch `main`).
 1. Read `status.md` (what is done, what is next, blockers, session log).
 2. Read `architecture.md` if you need the why or the design.
 3. Pick the first unblocked `[ ]` task, or one the owner names. Mark it `[~]` with your session/agent tag and date **before** starting.
